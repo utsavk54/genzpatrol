@@ -23,7 +23,7 @@ export async function GET(req: Request) {
     const token = await at.toJwt();
 
     return NextResponse.json({ token });
-  } catch (err: any) {
+  } catch (err: unknown) {
     console.error("Error creating token:", err);
     return NextResponse.json({ error: "Failed to create token" }, { status: 500 });
   }
