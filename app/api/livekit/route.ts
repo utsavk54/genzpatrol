@@ -10,14 +10,11 @@ export async function GET(req: Request) {
     return NextResponse.json({ error: "Missing room or username" }, { status: 400 });
   }
 
-  // LiveKit credentials (from your LiveKit Cloud project settings)
   const apiKey = process.env.LIVEKIT_API_KEY!;
   const apiSecret = process.env.LIVEKIT_API_SECRET!;
 
   try {
-    const at = new AccessToken(apiKey, apiSecret, {
-      identity: username,
-    });
+    const at = new AccessToken(apiKey, apiSecret, { identity: username });
     at.addGrant({ roomJoin: true, room });
 
     const token = await at.toJwt();
@@ -25,6 +22,8 @@ export async function GET(req: Request) {
     return NextResponse.json({ token });
   } catch (err: unknown) {
     console.error("Error creating token:", err);
-    return NextResponse.json({ error: "Failed to create token" }, { status: 500 });
+
+    const message = err instanceof Error ? err.message : String(err);
+    return NextResponse.json({ error: "Failed to create token", details: message }, { status: 500 });
   }
 }
