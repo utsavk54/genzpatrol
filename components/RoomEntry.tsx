@@ -55,22 +55,16 @@ export default function RoomEntryForm() {
                     value={value}
                     onChange={(value) => setValue(value)}
                 >
-                    <InputOTPGroup>
-                        <InputOTPSlot index={0} />
-                        <InputOTPSlot index={1} />
-                        <InputOTPSlot index={2} />
-                    </InputOTPGroup>
-                    <InputOTPSeparator />
-                    <InputOTPGroup>
-                        <InputOTPSlot index={3} />
-                        <InputOTPSlot index={4} />
-                        <InputOTPSlot index={5} />
-                    </InputOTPGroup>
-                    <InputOTPSeparator />
-                    <InputOTPGroup>
-                        <InputOTPSlot index={6} />
-                        <InputOTPSlot index={7} />
-                        <InputOTPSlot index={8} />
+                    <InputOTPGroup className="h-20">
+                        <InputOTPSlot className="h-4/5 w-14" index={0} />
+                        <InputOTPSlot className="h-4/5 w-14" index={1} />
+                        <InputOTPSlot className="h-4/5 w-14" index={2} />
+                        <InputOTPSlot className="h-4/5 w-14" index={3} />
+                        <InputOTPSlot className="h-4/5 w-14" index={4} />
+                        <InputOTPSlot className="h-4/5 w-14" index={5} />
+                        <InputOTPSlot className="h-4/5 w-14" index={6} />
+                        <InputOTPSlot className="h-4/5 w-14" index={7} />
+                        <InputOTPSlot className="h-4/5 w-14" index={8} />
                     </InputOTPGroup>
                 </InputOTP>
             </div>
